@@ -34,7 +34,6 @@ declare module google.maps {
         notify(key: string): void;
         set(key: string, value: any): void;
         setValues(values: any): void;
-        setValues(values: undefined);
         unbind(key: string): void;
         unbindAll(): void;
     }
@@ -197,8 +196,8 @@ declare module google.maps {
         getFlat(): boolean;
         getIcon(): MarkerImage;
         getMap(): Map;
-        getMap(): StreetViewPanorama;
-        getPosition(): LatLng;
+        //getMap(): StreetViewPanorama;
+        //getPosition(): LatLng;
         getShadow(): MarkerImage;
         getShape(): MarkerShape;
         getTitle(): string;
@@ -284,7 +283,7 @@ declare module google.maps {
         constructor (opts?: InfoWindowOptions);
         close(): void;
         getContent(): string;
-        getContent(): Element;
+        //getContent(): Element;
         getPosition(): LatLng;
         getZIndex(): number;
         open(map?: Map, anchor?: MVCObject): void;
