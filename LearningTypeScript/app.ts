@@ -2,6 +2,21 @@
 //your name is(blank), you are(blank) years old, and your username is(blank)
 //for extra credit, have the program log this information in a file to be accessed later.
 
-var name: string, username: string, age: number;
-confirm("test");
-age = Number(prompt("Tell me terrible things #1"));
+interface values {
+    name: string;
+    username: string;
+    age: number;
+
+}
+
+function getValues(): values {
+    //var args: values = {};
+    args.name = prompt("Tell me terrible things #1"),
+    args.username = prompt("Tell me terrible things #1"),
+    args.age = Number(prompt("Tell me terrible things #1"))
+
+    return args;
+}
+
+var items: values;
+items = getValues();
