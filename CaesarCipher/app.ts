@@ -41,11 +41,13 @@ class CeaserCipher implements Encoder {
         if (!isAllLetters)
             return false;
 
-        return false;
+        return true;
     }
 
     private encodeChar(char: string): string {
-        return "";
+        var index = this.validChars.indexOf(char);
+        var newIndex = (index + this.cipherKey) % this.cipherLen;
+        return this.validChars[newIndex];
     }
 
     public encode(msg: string): string {
@@ -58,11 +60,11 @@ class CeaserCipher implements Encoder {
 
         var result: string = "";
 
-        for (var i: number; i < msg.length; i++) {
+        for (var i: number = 0; i < msg.length; i++) {
             result += this.encodeChar(msg[i]);
         }
 
-        return msg;
+        return result;
     }
 }
 
