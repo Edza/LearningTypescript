@@ -1,9 +1,15 @@
 ﻿//write a program that can encrypt texts with an alphabetical caesar cipher.
 //This cipher can ignore numbers, symbols, and whitespace.
 
-class Constants {
-    public static get CIPHER_KEY(): number { return 1; }
-    public static get STRING_NO_VALUE(): string { return ""; }
+module Utility {
+    export function IsRepeat(): boolean {
+        return confirm("Repeat?");
+    }
+
+    export class Constants {
+        public static get CIPHER_KEY(): number { return 1; }
+        public static get STRING_NO_VALUE(): string { return ""; }
+    }
 }
 
 interface Failable {
@@ -55,7 +61,7 @@ class CeaserCipher implements Encoder {
 
         if (!this.isValid(msg)) {
             this.hasOperationFailed = true;
-            return Constants.STRING_NO_VALUE;
+            return Utility.Constants.STRING_NO_VALUE;
         }
 
         var result: string = "";
@@ -72,7 +78,7 @@ function PromptToEncodeAndDisplayResults(): void {
     var msg = prompt("Message to encode");
 
     var myEncoder: Encoder, result: string;
-    myEncoder = new CeaserCipher(Constants.CIPHER_KEY);
+    myEncoder = new CeaserCipher(Utility.Constants.CIPHER_KEY);
     result = myEncoder.encode(msg);
 
     if (myEncoder.hasOperationFailed)
@@ -81,13 +87,9 @@ function PromptToEncodeAndDisplayResults(): void {
         alert(result);
 }
 
-function IsRepeat(): boolean {
-    return confirm("Repeat?");
-}
-
 window.onload = () => {
     do {
         PromptToEncodeAndDisplayResults();
     }
-    while (IsRepeat());
+    while (Utility.IsRepeat());
 };
